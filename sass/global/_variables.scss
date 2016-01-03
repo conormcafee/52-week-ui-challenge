@@ -1,0 +1,210 @@
+// Colour Palette
+
+$grey: #C1CAD6;
+$orange: #EF4640;
+$blue: #4392F1;
+$green: #00A676;
+$purple: #67597A;
+$white: #ffffff;
+$black: #525252;
+
+// Validation
+$on: #7FC6A4;
+$off: #780116;
+ 
+// Brand Colour Palette
+$brand-colours: (
+    grey: (
+        base:   $grey,
+        lighter: lighten($grey, 20%),
+        light:  lighten($grey, 10%),
+        dark:   darken($grey, 10%),
+        darker: darken($grey, 30%)
+    ),
+
+    orange: (
+        base:   $orange,
+        lighter: lighten($orange, 20%),
+        light:  lighten($orange, 10%),
+        dark:   darken($orange, 10%),
+        darker: darken($orange, 20%)
+    ),
+
+    blue: (
+        base:   $blue,
+        lighter: lighten($blue, 35%),
+        light:  lighten($blue, 10%),
+        dark:   darken($blue, 10%),
+        darker: darken($blue, 20%)
+    ),
+
+    green: (
+        base:   $green,
+        lighter: lighten($green, 35%),
+        light:  lighten($green, 10%),
+        dark:   darken($green, 10%),
+        darker: darken($green, 20%)
+    ),
+
+    purple: (
+        base:   $purple,
+        lighter: lighten($purple, 35%),
+        light:  lighten($purple, 10%),
+        dark:   darken($purple, 10%),
+        darker: darken($purple, 20%)
+    ),
+
+    on: (
+        base:   $on,
+        lighter: lighten($on, 35%),
+        light:  lighten($on, 10%),
+        dark:   darken($on, 10%),
+        darker: darken($on, 20%)
+    ),
+
+    off: (
+        base:   $off,
+        lighter: lighten($off, 35%),
+        light:  lighten($off, 10%),
+        dark:   darken($off, 10%),
+        darker: darken($off, 20%)
+    ),
+    
+    white: (
+	    base: $white
+    ),
+    
+    black: (
+	    base: $black,
+        lighter: lighten($black, 20%),
+        light:  lighten($black, 10%),
+        dark:   darken($black, 10%),
+        darker: darken($black, 20%)
+    )
+);
+ 
+@function brand-colour($brand-colour, $tone: 'base') {
+    @return map-get(map-get($brand-colours, $brand-colour), $tone);
+}
+@function get-brand-colour($brand-colour, $tone: 'base') {
+    @return map-get(map-get($brand-colours, $brand-colour), $tone);
+}
+
+
+
+
+// Journal, Case Studies & Labs Map 
+
+$post-colours: (
+    case-study: (
+        base:   $blue,
+        lighter: lighten($blue, 20%),
+        light: lighten($blue, 10%),
+        hover: darken($blue, 10%),
+        svg:  case-study
+    ),
+
+    journal: (
+        base: $green,
+        lighter: lighten($green, 20%),
+        light: lighten($green, 10%),
+        hover: darken($green, 10%),
+        svg: journal
+    )
+);
+
+@function post-colour($post-colour, $tone: 'base') {
+    @return map-get(map-get($post-colours, $post-colour), $tone);
+}
+
+@function get-post-colour($post-colour, $tone: 'base') {
+    @return map-get(map-get($post-colours, $post-colour), $tone);
+}
+
+
+
+
+// Syntax Colours
+$navy: #2D3047;
+
+// Brand Colour Palette
+$syntax-colours: (
+    navy: (
+        base:   $navy,
+        lighter: lighten($navy, 20%),
+        light:  lighten($navy, 10%),
+        dark:   darken($navy, 10%),
+        darker: darken($navy, 20%)
+    ),
+    
+    white: (
+        base: $white
+    )
+);
+ 
+@function syntax-colour($syntax-colour, $tone: 'base') {
+    @return map-get(map-get($syntax-colours, $syntax-colour), $tone);
+}
+@function get-syntax-colour($syntax-colour, $tone: 'base') {
+    @return map-get(map-get($syntax-colours, $syntax-colour), $tone);
+}
+
+// Modular Scale
+
+$type-scale: (
+    11: 2.041rem,
+    10:1.913rem,
+    9: 1.793rem,
+    8: 1.68rem,
+    7: 1.575rem,
+    6: 1.476rem,
+    5: 1.383rem,
+    4: 1.296rem,
+    3: 1.215rem,
+    2: 1.138rem,
+    1: 1.067rem,
+    0: 1rem,
+    -1: 0.937rem,
+    -2: 0.878rem,
+    -3: 0.823rem,
+    -4: 0.772rem,
+    -5: 0.723rem,
+    -6: 0.678rem
+);
+
+@function type-scale($level) {
+  @return map-get($type-scale, $level);
+}
+
+$base-font-size: 1rem;
+$base-line-height: $base-font-size * 1.15;
+
+$line-heights: (
+    -6: $base-line-height,
+    -5: $base-line-height,
+    -4: $base-line-height,
+    -3: $base-line-height,
+    -2: $base-line-height,
+    -1: $base-line-height,
+    0: $base-line-height,
+    1: 2rem,
+    2: 2rem,
+    3: 2rem,
+    4: 2rem,
+    5: 2rem,
+    6: 2rem,
+    7: 2rem,
+    8: 2rem,
+    9: 2rem,
+    10: 2rem,
+    11: 2rem
+);
+
+@function line-height($level) {
+  @return map-get($line-heights, $level);
+}
+
+@mixin type-setting($level: 0) {
+  font-size: type-scale($level);
+  line-height: line-height($level);
+}

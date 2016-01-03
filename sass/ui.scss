@@ -1,0 +1,173 @@
+@charset "utf-8";
+
+@import
+	"global/mixins",
+	"global/variables",
+  "global/base"
+;
+
+// Colour Palette
+
+$black-one: #282828;
+$black-two: darken(#515151, 5%);
+$white: #ffffff;
+$dribbble: #ea4c89;
+ 
+// Brand Colour Palette
+$ui-colours: (
+    one: (
+        base:   $black-one
+    ),
+
+    two: (
+        base:   $black-two
+    ),
+
+    pink: (
+      base: $dribbble
+    ),
+
+    white: (
+        base: $white
+    )
+);
+ 
+@function colour($colour, $tone: 'base') {
+    @return map-get(map-get($ui-colours, $colour), $tone);
+}
+
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+body {
+  position: relative;
+  background-color: colour(one);
+  @include sub-heading;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+nav {
+  position: fixed;
+  height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 350px;
+  border-right: 1px solid colour(two);
+  padding: em(20);
+}
+
+h1 span {
+  display: none;
+}
+
+.logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: em(40);
+}
+
+.logo__sub {
+  @include font-size(0.8);
+  color: colour(two);
+  text-align: center;
+}
+
+.nav__list {
+  margin-top: em(40);
+}
+
+.nav__item {
+  display: block;
+  float: left;
+  width: 25%;
+  padding: em(20);
+  text-align: center;
+}
+
+.nav__link {
+  color: colour(two);
+  text-decoration: none;
+
+  &:hover {
+    color: colour(pink);
+  }
+}
+
+section {
+  margin-left: 350px;
+  width: calc(100% - 350px);
+  padding: em(20);
+}
+
+.shot {
+  display: block;
+  width: 50%;
+  float: left;
+  padding: em(20);
+}
+
+.shot__title {
+  @include font-size(1.0);
+  line-height: 1.5rem;
+  color: colour(two);
+  margin: em(10) 0;
+  padding-bottom: em(10);
+  border-bottom: 1px solid colour(two);
+}
+
+.shot__likes,
+.shot__link {
+  display: block;
+  color: colour(two);
+}
+
+.shot__likes {
+  float: left;
+  margin-right: em(10);
+
+  &:before {
+    content: "";
+    height: 13px;
+    width: 13px;
+    background-image: url('../../heart.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    margin-right: em(5);
+  }
+}
+
+.shot__link {
+  float: right;
+  text-decoration: none;
+  @include font-size(0.8);
+
+  &:after {
+    content: "";
+    height: 10px;
+    width: 10px;
+    background-image: url('../../external.svg');
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin-left: em(5);
+  }
+
+  &:hover {
+    color: colour(pink);
+  }
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: colour(two);
+}
+

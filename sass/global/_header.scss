@@ -1,0 +1,48 @@
+header {
+	background-color: brand-colour(white);
+	overflow: hidden;
+}
+
+.header__left,
+.header__right {
+	width: 100%;
+	display: block;
+	float: left;
+}
+
+.header__logo {
+	margin-top: 0.5rem;
+}
+
+.header__menu {
+	@include sub-heading;
+	padding: $base-line-height 0;
+	text-align: left;
+}
+
+.header__menu-item {
+	display: inline;
+	color: brand-colour(black);
+
+	&:hover {
+		color: brand-colour(orange);
+	}
+}
+
+.header__menu-item:not(:first-child) {
+	padding-left: $base-line-height;
+}
+
+@media only screen and (min-width: 668px) {
+	.header__left {
+		width: 25%;
+	}
+
+	.header__right {
+		width: 75%;
+	}
+
+	.header__menu {
+		text-align: right;
+	}
+}
