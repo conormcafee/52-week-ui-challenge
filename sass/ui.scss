@@ -53,14 +53,19 @@ img {
 }
 
 nav {
-  position: fixed;
-  height: 100%;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 350px;
-  border-right: 1px solid colour(two);
-  padding: em(20);
+  display: none;
+
+  @media only screen and (min-width: 800px) {
+    position: fixed;
+    display: block;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 350px;
+    border-right: 1px solid colour(two);
+    padding: em(20);
+  }
 }
 
 h1 span {
@@ -102,16 +107,22 @@ h1 span {
 }
 
 section {
-  margin-left: 350px;
-  width: calc(100% - 350px);
   padding: em(20);
+
+  @media only screen and (min-width: 800px) {
+    margin-left: 350px;
+    width: calc(100% - 350px);
+  }
 }
 
 .shot {
   display: block;
-  width: 50%;
-  float: left;
   padding: em(20);
+
+  @media only screen and (min-width: 768px) {
+    width: 50%;
+    float: left;
+  }
 }
 
 .shot__title {
@@ -146,7 +157,7 @@ section {
 }
 
 .shot__link {
-  float: right;
+  float: left;
   text-decoration: none;
   @include font-size(0.8);
 
@@ -162,6 +173,10 @@ section {
 
   &:hover {
     color: colour(pink);
+  }
+
+  @media only screen and (min-width: 800px) {
+    float: right;
   }
 }
 

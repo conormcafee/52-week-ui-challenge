@@ -70,14 +70,20 @@ img {
 }
 
 nav {
-  position: fixed;
-  height: 100%;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 350px;
-  border-right: 1px solid #444444;
-  padding: 1.25em;
+  display: none;
+}
+@media only screen and (min-width: 800px) {
+  nav {
+    position: fixed;
+    display: block;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 350px;
+    border-right: 1px solid #444444;
+    padding: 1.25em;
+  }
 }
 
 h1 span {
@@ -119,16 +125,24 @@ h1 span {
 }
 
 section {
-  margin-left: 350px;
-  width: calc(100% - 350px);
   padding: 1.25em;
+}
+@media only screen and (min-width: 800px) {
+  section {
+    margin-left: 350px;
+    width: calc(100% - 350px);
+  }
 }
 
 .shot {
   display: block;
-  width: 50%;
-  float: left;
   padding: 1.25em;
+}
+@media only screen and (min-width: 768px) {
+  .shot {
+    width: 50%;
+    float: left;
+  }
 }
 
 .shot__title {
@@ -163,7 +177,7 @@ section {
 }
 
 .shot__link {
-  float: right;
+  float: left;
   text-decoration: none;
   font-size: 8px;
   font-size: 0.8rem;
@@ -179,6 +193,11 @@ section {
 }
 .shot__link:hover {
   color: #ea4c89;
+}
+@media only screen and (min-width: 800px) {
+  .shot__link {
+    float: right;
+  }
 }
 
 hr {
